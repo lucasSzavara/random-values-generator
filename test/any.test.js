@@ -53,7 +53,7 @@ function shouldBeANumber(constructor) {
     });
 }
 
-function shouldBeGraterThan(constructor, least) {
+function shouldBeGreaterThan(constructor, least) {
     it('should be greater than ' + least.toString(), () => {
         let number = constructor(least);
         expect(number).to.be.greaterThan(least);
@@ -88,7 +88,7 @@ function shouldThrowRangeErrorIfLengthIsLessThanZero(
     });
 }
 
-function shouldHaveLengthBiggerThanZero(string) {
+function shouldHaveLengthGreaterThanZero(string) {
     it('should have length bigger than zero', () => {
         expect(string).to.have.length.above(0);
     });
@@ -102,7 +102,7 @@ describe('Any integer', function() {
 
 describe('Any integer greater than', () => {
     let least = Any.integer();
-    let constructor = Any.integerBiggerThan;
+    let constructor = Any.integerGreaterThan;
 
     it('should be a integer', () => {
         let integer = constructor(least);
@@ -176,7 +176,7 @@ describe('Any number', function() {
 
 describe('Any number greater than', () => {
     let least = Any.number();
-    let constructor = Any.numberBiggerThan;
+    let constructor = Any.numberGreaterThan;
 
     it('should be a number', () => {
         let number = constructor(least);
