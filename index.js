@@ -8,7 +8,7 @@ module.exports = class Any {
         return Math.E * number;
     }
 
-    static numberBiggerThan(least) {
+    static numberGreaterThan(least) {
         let number = Any.number();
         while (number <= least) {
             number += Any.positiveNonZeroNumber();
@@ -29,7 +29,7 @@ module.exports = class Any {
         return Math.floor(Math.E * number);
     }
 
-    static integerBiggerThan(least) {
+    static integerGreaterThan(least) {
         let integer = Any.integer();
         while (integer <= least) {
             integer += Any.positiveNonZeroInteger();
