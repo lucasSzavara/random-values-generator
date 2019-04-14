@@ -109,7 +109,7 @@ describe('Any integer greater than', () => {
         expect(Number.isInteger(integer)).to.be.true;
     });
 
-    shouldBeGraterThan(constructor, least);
+    shouldBeGreaterThan(constructor, least);
 });
 
 describe('Any integer lower than', () => {
@@ -183,7 +183,7 @@ describe('Any number greater than', () => {
         expect(number).to.be.a('number');
     });
 
-    shouldBeGraterThan(constructor, least);
+    shouldBeGreaterThan(constructor, least);
 });
 
 describe('Any number lower than', () => {
@@ -196,6 +196,104 @@ describe('Any number lower than', () => {
     });
 
     shouldBeLessThan(constructor, most);
+});
+
+describe('Any number between', () => {
+    it('should be a number', () => {
+        // GIVEN
+        let least = Any.number();
+        let most = Any.numberGreaterThan(least);
+
+        // WHEN
+        let between = Any.numberBetween(least, most);
+
+        // THEN
+        expect(between).to.be.a('number');
+    });
+
+    it('should be greater than least', () => {
+        // GIVEN
+        let least = Any.number();
+        let most = Any.numberGreaterThan(least);
+
+        // WHEN
+        let between = Any.numberBetween(least, most);
+
+        // THEN
+        expect(between).to.be.greaterThan(least);
+    });
+
+    it('should be less than most', () => {
+        // GIVEN
+        let least = Any.number();
+        let most = Any.numberGreaterThan(least);
+
+        // WHEN
+        let between = Any.numberBetween(least, most);
+
+        // THEN
+        expect(between).to.be.lessThan(most);
+    });
+
+    it('should return the given number if they are equal', () => {
+        // GIVEN
+        let number = Any.number();
+
+        // WHEN
+        let between = Any.numberBetween(number, number);
+
+        // THEN
+        expect(between).to.be.equal(number);
+    });
+});
+
+describe('Any integer between', () => {
+    it('should be a integer', () => {
+        // GIVEN
+        let least = Any.integer();
+        let most = Any.integerGreaterThan(least);
+
+        // WHEN
+        let between = Any.integerBetween(least, most);
+
+        // THEN
+        expect(Number.isInteger(between)).to.be.true;
+    });
+
+    it('should be greater than least', () => {
+        // GIVEN
+        let least = Any.integer();
+        let most = Any.integerGreaterThan(least);
+
+        // WHEN
+        let between = Any.integerBetween(least, most);
+
+        // THEN
+        expect(between).to.be.greaterThan(least);
+    });
+
+    it('should be less than most', () => {
+        // GIVEN
+        let least = Any.integer();
+        let most = Any.integerGreaterThan(least);
+
+        // WHEN
+        let between = Any.integerBetween(least, most);
+
+        // THEN
+        expect(between).to.be.lessThan(most);
+    });
+
+    it('should return the given integer if they are equal', () => {
+        // GIVEN
+        let integer = Any.integer();
+
+        // WHEN
+        let between = Any.integerBetween(integer, integer);
+
+        // THEN
+        expect(between).to.be.equal(integer);
+    });
 });
 
 describe('Any positive number', () => {
@@ -267,5 +365,5 @@ describe('Any non-empty string', () => {
 
     shouldBeAString(string);
 
-    shouldHaveLengthBiggerThanZero(string);
+    shouldHaveLengthGreaterThanZero(string);
 });

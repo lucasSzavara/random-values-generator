@@ -24,6 +24,24 @@ module.exports = class Any {
         return number;
     }
 
+    static numberBetween(givenLeast, givenMost) {
+        let number = Any.number();
+        let least = Math.min(givenLeast, givenMost);
+        let most = Math.max(givenLeast, givenMost);
+        if (least === most) {
+            return least;
+        }
+        while (number <= least || number >= most) {
+            while (number <= least) {
+                number += Any.positiveNumber();
+            }
+            while (number >= most) {
+                number -= Any.positiveNumber();
+            }
+        }
+        return number;
+    }
+
     static integer() {
         let number = Math.floor(Any.number());
         return Math.floor(Math.E * number);
@@ -43,6 +61,10 @@ module.exports = class Any {
             integer -= Any.positiveNonZeroInteger();
         }
         return integer;
+    }
+
+    static integerBetween(least, most) {
+        return Math.floor(Any.numberBetween(least + 1, most));
     }
 
     static positiveNumber() {
