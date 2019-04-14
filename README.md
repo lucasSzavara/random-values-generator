@@ -23,3 +23,9 @@ The variable `integer` will be a random integer
 ## Contributing
 
 In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
+
+## USEFUL LINKS:
+
+-   Github: https://github.com/lucasSzavara/random-values-generator
+-   Trello: https://trello.com/b/rMajBLuT/random-values-generator
+-   NPM: https://www.npmjs.com/package/random-values-generator
