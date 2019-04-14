@@ -1,2 +1,5 @@
 language: node_js
-node_js: 11.14.0
+node_js:
+    - '11.14.0'
+before_install:
+    - npm i -g npm@6.7.0
