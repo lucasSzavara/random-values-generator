@@ -1,6 +1,6 @@
 {
     "name": "random-values-generator",
-    "version": "0.1.0",
+    "version": "0.18.0",
     "description": "A simple package that generates random values",
     "main": "index.js",
     "scripts": {
