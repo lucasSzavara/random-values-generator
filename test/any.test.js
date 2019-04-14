@@ -367,3 +367,27 @@ describe('Any non-empty string', () => {
 
     shouldHaveLengthGreaterThanZero(string);
 });
+
+describe('Any string from regex', () => {
+    it('should be a string', () => {
+        // GIVEN
+        let regex = /<([a-z]\w{0,20})>foo<\1>/;
+
+        // WHEN
+        let text = Any.stringFromRegex(regex);
+
+        // THEN
+        expect(text).to.be.a('string');
+    });
+
+    it('should match the given regex', () => {
+        // GIVEN
+        let regex = /<([a-z]\w{0,20})>foo<\1>/;
+
+        // WHEN
+        let text = Any.stringFromRegex(regex);
+
+        // THEN
+        expect(text).to.match(regex);
+    });
+});

@@ -1,3 +1,4 @@
+const RandExp = require('randexp');
 module.exports = class Any {
     static number() {
         let random = Math.random();
@@ -155,5 +156,9 @@ module.exports = class Any {
 
     static nonEmptyString() {
         return Any.string(Any.positiveNonZeroInteger());
+    }
+
+    static stringFromRegex(regex) {
+        return new RandExp(regex).gen();
     }
 };
