@@ -391,3 +391,63 @@ describe('Any string from regex', () => {
         expect(text).to.match(regex);
     });
 });
+
+// Dates tests:
+
+describe('Any date', () => {
+    it('should be a date', () => {
+        // GIVEN:
+        let date = Any.date();
+
+        // THEN:
+        expect(date).to.be.instanceOf(Date);
+    });
+});
+
+describe('Any date before the given one', () => {
+    it('should be a date', () => {
+        // GIVEN:
+        let most = Any.date();
+
+        // WHEN:
+        let date = Any.dateBefore(most);
+
+        // THEN:
+        expect(date).to.be.instanceOf(Date);
+    });
+
+    it('should be before the given date', () => {
+        // GIVEN:
+        let most = Any.date();
+
+        // WHEN:
+        let date = Any.dateBefore(most);
+
+        // THEN:
+        expect(date.valueOf()).to.be.lessThan(most.valueOf());
+    });
+});
+
+describe('Any date after the given one', () => {
+    it('should be a date', () => {
+        // GIVEN:
+        let most = Any.date();
+
+        // WHEN:
+        let date = Any.dateAfter(most);
+
+        // THEN:
+        expect(date).to.be.instanceOf(Date);
+    });
+
+    it('should be after the given date', () => {
+        // GIVEN:
+        let least = Any.date();
+
+        // WHEN:
+        let date = Any.dateAfter(least);
+
+        // THEN:
+        expect(date.valueOf()).to.be.greaterThan(least.valueOf());
+    });
+});

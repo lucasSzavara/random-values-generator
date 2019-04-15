@@ -161,4 +161,31 @@ module.exports = class Any {
     static stringFromRegex(regex) {
         return new RandExp(regex).gen();
     }
+
+    static date() {
+        let date = new Date(
+            Any.stringFromRegex(
+                /([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/
+            )
+        );
+        return date;
+    }
+
+    static dateBefore(most) {
+        if (most == null) {
+            most = new Date();
+        }
+        let diff = Any.positiveNonZeroInteger() * (24 * 60 * 60 * 1000);
+        let date = new Date(most.getTime() - diff);
+        return date;
+    }
+
+    static dateAfter(least) {
+        if (least == null) {
+            least = new Date();
+        }
+        let diff = Any.positiveNonZeroInteger() * (24 * 60 * 60 * 1000);
+        let date = new Date(least.getTime() + diff);
+        return date;
+    }
 };
