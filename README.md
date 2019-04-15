@@ -1,5 +1,7 @@
 # random-values-generator
 
+[![Build Status](https://travis-ci.org/lucasSzavara/random-values-generator.svg?branch=master)](https://travis-ci.org/lucasSzavara/random-values-generator)
+
 A small library that generates random values
 
 ## Installation
