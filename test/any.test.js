@@ -312,7 +312,7 @@ describe('Any negative number', () => {
     shouldBeANegativeNumber(constructor);
 });
 
-describe('Any number non-zero', () => {
+describe('Any non-zero number', () => {
     let constructor = Any.nonZeroNumber;
 
     shouldBeANumber(constructor);
@@ -389,6 +389,26 @@ describe('Any string from regex', () => {
 
         // THEN
         expect(text).to.match(regex);
+    });
+});
+
+describe('Any brazilian phone number', () => {
+    it('should be a string', () => {
+        // WHEN
+        let text = Any.brazilianPhone();
+
+        // THEN
+        expect(text).to.be.a('string');
+    });
+    it('should match the brazilian phone pattern', () => {
+        // GIVEN
+        let phoneRegex = /^\+55\(\d\d\)\d{5}-\d{4}$/;
+
+        // WHEN
+        let phone = Any.brazilianPhone();
+
+        // THEN
+        expect(phone).to.match(phoneRegex);
     });
 });
 

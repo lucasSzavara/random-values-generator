@@ -162,6 +162,11 @@ module.exports = class Any {
         return new RandExp(regex).gen();
     }
 
+    static brazilianPhone() {
+        let brazilianPhoneRegex = /^\+55\(\d\d\)\d{5}-\d{4}$/;
+        return Any.stringFromRegex(brazilianPhoneRegex);
+    }
+
     static date() {
         let date = new Date(
             Any.stringFromRegex(
